@@ -33,7 +33,10 @@ function AddProductPage() {
         onSubmit: values => {
             fetch("http://localhost:8000/products", {
                 method: 'POST',
-                body: JSON.stringify(values)
+                body: JSON.stringify(values),
+                headers: {
+                    "Content-Type": "Application/json"
+                }
             }).then(data => navigator("/admin/products"))
         },
     });
